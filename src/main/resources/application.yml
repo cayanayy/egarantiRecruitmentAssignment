@@ -1,0 +1,18 @@
+server:
+  error:
+    include-message: always
+    include-stacktrace: on_param
+
+spring:
+  datasource:
+    username: postgres
+    password: topsecret
+    url: jdbc:postgresql://localhost:5432/recruitment
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true

@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  api:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://database:5432/assignment
+      SPRING_DATASOURCE_PASSWORD: topsecret
+  database:
+    image: postgres:alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: topsecret
+      POSTGRES_DB: assignment
