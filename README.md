@@ -13,6 +13,7 @@ Database (PostgresSQL) already included in docker compose.
 
 ### If downloaded, cd to that directory and:
 
+    maven clean package
     docker compose up
 
 ---
