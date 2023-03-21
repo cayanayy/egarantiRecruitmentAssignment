@@ -37,16 +37,27 @@ Database (PostgresSQL) already included in docker compose.
 |------|----------|-----------|-------------|
 | id   | required | long, int | id of store |
 
+#### Example Request
+
+> localhost:8080/store?id=1
+
+
 </details>
 
 <details>
  <summary><code>POST</code> <code><b>/store</b></code> <code>(create store)</code></summary>
 
-##### Request Body
+##### Request Body raw (json)
 
 | name | type     | data type | description       |
 |------|----------|-----------|-------------------|
 | name | required | string    | name of the store |
+
+#### Example Request
+
+> {\
+> "name": "kitapevi"\
+> }
 
 </details>
 
@@ -59,41 +70,66 @@ Database (PostgresSQL) already included in docker compose.
 |------|----------|-----------|-------------|
 | id   | required | long, int | id of store |
 
+#### Example Request
+
+> localhost:8080/store?id=1
+
 </details>
 
 <details>
   <summary><code>PUT</code> <code><b>/store</b></code> <code>(updates store details)</code></summary>
 
-##### Request Body
+##### Request Body raw (json)
 
 | name | type     | data type | description           |
 |------|----------|-----------|-----------------------|
 | id   | required | long, int | id of store           |
 | name | required | string    | new name of the store |
 
+#### Example Request
+
+> {\
+> "id": 1,\
+> "name": "yeni kitapevi"\
+> }
+
 </details>
 
 <details>
   <summary><code>POST</code> <code><b>/store/add-employee</b></code> <code>(adds employee to specified store)</code></summary>
 
-##### Request Body
+##### Request Body raw (json)
 
 | name       | type     | data type | description        |
 |------------|----------|-----------|--------------------|
 | storeId    | required | long, int | id of store        |
 | employeeId | required | long, int | id of the employee |
+
+#### Example Request
+
+> {\
+> "storeId": 1,\
+> "employeeId": 1\
+> }
 
 </details>
 
 <details>
   <summary><code>POST</code> <code><b>/store/remove-employee</b></code> <code>(removes employee from specified store)</code></summary>
 
-##### Request Body
+##### Request Body raw (json)
 
 | name       | type     | data type | description        |
 |------------|----------|-----------|--------------------|
 | storeId    | required | long, int | id of store        |
 | employeeId | required | long, int | id of the employee |
+
+#### Example Request
+
+> {\
+> "storeId": 1,\
+> "employeeId": 1\
+> }
 
 </details>
 
@@ -106,6 +142,10 @@ Database (PostgresSQL) already included in docker compose.
 |---------|----------|-----------|-------------|
 | storeId | required | long, int | id of store |
 
+#### Example Request
+
+> localhost:8080/store/expense/per-month?storeId=1
+
 </details>
 
 <details>
@@ -117,18 +157,30 @@ Database (PostgresSQL) already included in docker compose.
 |---------|----------|-----------|-------------|
 | storeId | required | long, int | id of store |
 
+#### Example Request
+
+> localhost:8080/store/expense/per-employee?storeId=1
+
 </details>
 
 <details>
   <summary><code>POST</code> <code><b>/store/expense</b></code> <code>(adds expense to store)</code></summary>
 
-##### Query Params
+##### Request Body raw (json)
 
 | name           | type     | data type | description        |
 |----------------|----------|-----------|--------------------|
 | storeId        | required | long, int | id of store        |
 | expenseDetails | required | string    | details of expense |
 | expenseValue   | required | string    | value of expense   |
+
+#### Example Request
+
+> {\
+> "storeId": 1,\
+> "expenseDetails": "Wall painting",\
+> "expenseValue": 15555\
+> }
 
 </details>
 
@@ -154,22 +206,32 @@ Database (PostgresSQL) already included in docker compose.
 |------|----------|-----------|----------------|
 | id   | required | long, int | id of employee |
 
+#### Example Request
+
+> localhost:8080//employee?id=1
+
 </details>
 
 <details>
  <summary><code>POST</code> <code><b>/employee</b></code> <code>(create employee)</code></summary>
 
-##### Request Body
+##### Request Body raw (json)
 
-<span style="color:red">
-role must be ADMIN or USER otherwise will cause an error.
-</span>
+! role must be ADMIN or USER otherwise will cause an error
 
 | name      | type     | data type | description            |
 |-----------|----------|-----------|------------------------|
 | firstName | required | string    | first name of employee |
 | lastName  | required | string    | last name of employee  |
 | role      | required | string    | role of employee       |
+
+#### Example Request
+
+> {\
+> "firstName": "Ahmet",\
+> "lastName": "Yılmaz",\
+> "role": "USER"\
+> }
 
 </details>
 
@@ -182,16 +244,18 @@ role must be ADMIN or USER otherwise will cause an error.
 |------|----------|-----------|----------------|
 | id   | required | long, int | id of employee |
 
+#### Example Request
+
+> localhost:8080//employee?id=1
+
 </details>
 
 <details>
   <summary><code>PUT</code> <code><b>/employee</b></code> <code>(updates employee details)</code></summary>
 
-##### Request Body
+##### Request Body raw (json)
 
-<span style="color:red">
-role must be ADMIN or USER otherwise will cause an error.
-</span>
+! role must be ADMIN or USER otherwise will cause an error
 
 | name      | type     | data type | description                    |
 |-----------|----------|-----------|--------------------------------|
@@ -199,6 +263,14 @@ role must be ADMIN or USER otherwise will cause an error.
 | firstName | optional | string    | new first name of the employee |
 | lastName  | optional | string    | new last name of the employee  |
 | role      | optional | string    | new role of the employee       |
+
+#### Example Request
+
+> {\
+> "id": 1,\
+> "firstName": "Kadir",\
+> "role": "ADMIN"\
+> }
 
 </details>
 
