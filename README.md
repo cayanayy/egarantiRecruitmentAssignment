@@ -11,10 +11,6 @@ Database (PostgresSQL) already included in docker compose.
 
 ---
 
-### Without downloading:
-
-    docker compose up https://github.com/cayanayy/egarantiRecruitmentAssignment
-
 ### If downloaded, cd to that directory and:
 
     docker compose up
